@@ -1,0 +1,367 @@
+.form-wrap{
+  padding: 64px 0;
+  min-height: 100vh;
+  .title-block{
+    font-family: $Manrope;
+    font-size: 36px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $primary;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 64px;
+  }
+}
+.form-step{
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__item{
+    margin: 0 100px;
+    font-weight: 700;
+    font-family: $Manrope;
+    display: none;
+    &.active{
+      display: block;
+      .form-step__numb{
+        color: $secondary;
+      }
+    }
+  }
+  &__numb{
+    width: 72px;
+    height: 72px;
+    font-size: 30px;
+    line-height: 52px;
+    text-align: center;
+    background: $light;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 0 auto;
+    color: $secondary-100;
+    margin-bottom: 16px;
+
+  }
+  &__title{
+    color: $default-100;
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+.step-item{
+  display: none;
+  &.active{
+    display: flex;
+    flex-wrap: wrap;
+    .photo-container{
+      display: flex;
+    }
+  }
+  .label{
+    font-family: $Manrope;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: $gray-100;
+    margin-bottom: 8px;
+  }
+}
+.step-item__info{
+  width: 100%;
+  &:nth-child(2){
+    background: $light-100;
+    border-radius: 16px;
+    padding: 30px;
+  }
+  .step-btn{
+    margin: 0 0 0 auto;
+    display: block;
+  }
+}
+.form-item{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.select, .input, .textarea{
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 1px solid $gray;
+  line-height: 20px;
+  font-size: 16px;
+  font-family: $Manrope;
+  font-weight: 400;
+  padding: 12px;
+  outline: none;
+  margin-bottom: 8px;
+  width: 100%;
+}
+.select, .input{
+  background: linear-gradient(0deg, rgba(242, 242, 242, 0.4), rgba(242, 242, 242, 0.4));
+
+  height: 44px;
+}
+.textarea{
+  background: $white;
+  resize: none;
+  height: 317px;
+}
+.select{
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-size: 18px;
+  background-color: rgba(242, 242, 242, 0.4);
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+  background-image: url("../images/svg/ic-down.svg");
+}
+.input{}
+.input-error{
+  font-family: $Manrope;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: $danger-100;
+  width: 100%;
+  text-align: right;
+  display: none;
+}
+.input-info{
+  font-family: $Manrope;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: $gray-100;
+}
+
+.photo-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  height: 320px;
+  width: 100%;
+  overflow: auto;
+  margin: 0 -20px;
+}
+
+.photo-container{
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  background: $light-100;
+  border-radius: 16px;
+  display: none;
+  padding: 30px;
+  align-items: flex-start;
+  position: relative;
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 60px;
+    height: calc(100% - 120px);
+    width: 4px;
+    background: $secondary-100;
+  }
+}
+.photo-container__item{
+  width: calc(50% - 35px);
+  margin: 0 35px;
+  display: flex;
+  flex-wrap: wrap;
+  .btn-green{
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+.photo-item, .photo-upload{
+  background: $light-200;
+  width: 140px;
+  height: 130px;
+  margin: 0 12px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background-size: cover !important;
+  background-position: center !important;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  .icon{
+    width: 63px;
+    height: 63px;
+    fill: $gray-200;
+  }
+  .icon-plus{
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: $gray-200;
+    stroke-width: 3px;
+  }
+}
+.custom-file-preview-del{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  background: $light-100;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  .icon{
+    fill:none ;
+    stroke: $default-100;
+    stroke-width: 3px;
+    width: 15px;
+    height: 15px;
+  }
+}
+.photo-main{
+  width: 480px;
+  height: 390px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $light-200;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  margin-bottom: 40px;
+  .icon{
+    width: 80px;
+    height: 80px;
+    fill: $gray-200;
+  }
+}
+.photo-container__info{
+  font-family: $Manrope;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  color: $gray-100;
+  ul{
+    display: block;
+    margin-bottom: 29px;
+  }
+}
+.step-payment{
+  flex-wrap: wrap;
+}
+.payment-item__wrap{
+  display: flex;
+  width: 100%;
+  padding: 25px 30px 30px;
+  background: $light-100;
+  border-radius: 16px;
+  position: relative;
+  justify-content: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05));
+  bottom: 40px;
+  flex-wrap: wrap;
+  &:before{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 70px;
+    height: calc(100% - 140px);
+    width: 4px;
+    background: $secondary-100;
+  }
+
+}
+.payment-item{
+  text-align: center;
+  font-family: $Manrope;
+  max-width: 336px;
+  padding: 20px;
+  margin: 0 50px;
+  width: 100%;
+  &.payment-item-special{
+   .payment-item__text{
+     color: $primary;
+     font-weight: 700;
+   }
+    .payment-item__block{
+      color: $danger;
+      position: relative;
+      &:after{
+        position: absolute;
+        content: '';
+        right: -20px;
+        bottom: -30px;
+        background: url("../images/svg/ic-heart.svg") no-repeat;
+        width: 85px;
+        height: 80px;
+        background-size: contain;
+      }
+    }
+  }
+  span{
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    font-family: $Manrope;
+    color: $gray-100;
+    display: block;
+    margin-bottom: 14px;
+  }
+  &__number{
+    font-size: 48px;
+    line-height: 28px;
+    color: $green;
+    margin-bottom: 20px;
+    font-family: $Manrope;
+    font-weight: 700;
+  }
+  .btn-green{
+    margin-bottom: 12px;
+  }
+  &__text{
+    margin-bottom: 36px;
+    min-height: 32px;
+  }
+  &__block{
+    background: $white;
+    border-radius: 16px;
+    padding: 30px;
+    text-align: left;
+    border: 2px solid $light;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-family: $Manrope;
+    box-shadow: 0px 7px 14px -2px rgba(0, 0, 0, 0.04);
+    margin-bottom: 40px;
+  }
+  .info-payment{
+    span{
+      &:first-of-type{
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.payment-information{
+  font-family: $Manrope;
+  font-size: 11px;
+  line-height: 16px;
+  color: $gray-100;
+  max-width: 410px;
+  margin:  0 auto;
+  text-align: center;
+}
+input[data-state="invalid"] {
+  border-color: hsl(0, 76%, 50%);;
+}
+
+/* Show green borders when valid */
+input[data-state="valid"] {
+  border-color: hsl(120, 76%, 50%);
+}

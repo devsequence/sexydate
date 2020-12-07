@@ -1,0 +1,156 @@
+.header{
+  background: $light;
+  &-top{
+    background: $secondary;
+    height: 75px;
+    border-radius: 0px 0px 16px 16px;
+    overflow: hidden;
+    position: relative;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+    &:before, &:after{
+      position: absolute;
+      content: '';
+      z-index: -1;
+    }
+    &:before{
+      background: url('../images/svg/header-bg-1.svg') no-repeat;
+      width: 429px;
+      height: 90px;
+      top: -5px;
+      background-size: contain;
+      right: -226px;
+    }
+    &:after{
+      background: url('../images/svg/header-bg-2.svg') no-repeat;
+      width: 449px;
+      height: 125px;
+      right: 0;
+      top: -27px;
+      background-size: cover;
+    }
+    .container{
+      display: flex;
+      height: 100%;
+      padding: 8px 12px;
+    }
+  }
+  &-logo{
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      left: -22px;
+      top: -35px;
+      width: 155px;
+      height: 155px;
+      background-image: url("../images/svg/ic-heart.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: 1;
+      transform: scale(-1, 1);
+    }
+    a{
+      position: relative;
+      z-index: 2;
+      width: 145px;
+      height: 43px;
+    }
+    .icon{
+      width: 100%;
+      height: 100%;
+      fill: $white;
+    }
+  }
+  &-nav__btn{
+    position: absolute;
+    top: 26px;
+    right: 0px;
+    z-index: 11;
+    .nav-btn{
+      background: transparent;
+    }
+    .icon{
+      width: 67px;
+      height: 25px;
+      fill: none;
+      stroke: $white;
+      stroke-width: 3px;
+    }
+
+  }
+  &-mobile{
+    padding: 111px 0 103px;
+    position: fixed;
+    width: 100%;
+    overflow: auto;
+    height: 100vh;
+    z-index: 10;
+    background: $secondary;
+    display: none;
+    &.is-open{
+      display: block;
+    }
+  }
+  &-lang, &-btn{
+    display: none;
+  }
+}
+.header-nav{
+  display: none;
+  &__list{}
+  &__item{}
+  &__link{
+
+  }
+}
+.mobile-lang{
+  margin-bottom: 80px;
+  &__list{
+    display: flex;
+    justify-content: center;
+  }
+  &__item{
+    margin: 0 10px;
+  }
+  &__link{
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 30px;
+    color: $white;
+    text-transform: uppercase;
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: $white;
+      opacity: 0;
+      transition: all ease 150ms;
+    }
+    &.active{
+      &:before{
+        opacity: 1;
+      }
+    }
+  }
+}
+.mobile-nav{
+  margin-bottom: 78px;
+  &__list{
+    text-align: center;
+  }
+  &__item{}
+  &__link{
+    color: $white;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    text-transform: uppercase;
+  }
+}
+.mobile-btn{
+  text-align: center;
+}
