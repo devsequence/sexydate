@@ -42,7 +42,7 @@ button{
 }
 .btn-white{
   background: $white;
-  color: $secondary;
+  color: $secondary-200;
 }
 .btn-red{
   background: $primary;
@@ -53,4 +53,34 @@ button{
   color: $white;
   font-size: 14px;
   line-height: 30px;
+}
+.active-special{
+  .popup-image__slider{
+    &:after{
+      position: absolute;
+      content: '';
+      left: -30px;
+      top: 20px;
+      background: url("../images/svg/ic-heart.svg") no-repeat;
+      width: 85px;
+      height: 80px;
+      background-size: contain;
+      transform: scale(-1, 1);
+    }
+
+  }
+  .popup-image__info {
+    a{
+      color: $danger;
+    }
+    .info-phone{
+      color: $secondary;
+    }
+  }
+  .item-models__date{
+    font-weight: 700;
+  }
+  .item-models__date, .popup-image__text{
+    color: $danger;
+  }
 }

@@ -246,6 +246,18 @@
   .payment-item__wrap{
     flex-wrap: nowrap;
   }
+  .item-models__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .seo-text-wrap{
+    h1{
+      font-size: 24px;
+      line-height: 30px;
+      margin-bottom: 18px;
+    }
+  }
 }
 @media screen and ( min-width: 1200px ){
   .photo-container__item{
