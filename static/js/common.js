@@ -91,7 +91,7 @@ $('.models-slider').slick({
     prevArrow:"<button type='button' class='slick-prev'><svg class=\"icon\"><use xlink:href=\"#ic-chevron\"></use></svg></button>",
     nextArrow:"<button type='button' class='slick-next'><svg class=\"icon\"><use xlink:href=\"#ic-chevron\"></use></svg></button>",
 });
-$('.popup-close, .popup-overlay').on('click', function (e) {
+$('.popup-close').on('click', function (e) {
     $('.popup').removeClass('active');
     $('body').removeClass('scroll');
     $('.popup-image__slider').slick("unslick");
@@ -100,10 +100,9 @@ $(document).mouseup(function (e){
     var overlay = $('.popup .popup-centered');
     if (!overlay.is(e.target)
         && overlay.has(e.target).length === 0) {
-
         $('.popup').removeClass('active');
         $('body').removeClass('scroll');
-        $('.popup-image__slider').slick("unslick");
+        //$('.popup-image__slider').slick("unslick");
     }
 });
 
@@ -118,6 +117,7 @@ function CustomUpload(element) {
         let start = ref.imageFileArray.length;
         let validExt = ['image/jpg', 'image/jpeg', 'image/png'];
         $.each(arrayImage, (index, item) => {
+
             if ($.inArray(item.type,validExt) != -1) {
                 item.index = start + index;
                 ref.imageFileArray.push(item);
@@ -131,17 +131,28 @@ function CustomUpload(element) {
                     <svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
                     </div>
                     `;
-                    $('.photo-wrap .photo-item').remove();
-                    $('.photo-wrap').append(imageItem);
-                    $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').addClass('hidden');
+                    $('div [data-image = '+ item.index +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
+                    $('div [data-image = '+ item.index +']').find('.add-img').addClass('hidden');
+                    // $('.photo-wrap .photo-item').remove();
+
+                    // for (let i = 0; i < arrayImage.length; i++) {
+                    //     $('div [data-image = '+ i +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
+                    //     // console.log('item'+ i , event.target.result);
+                    //     console.log(arrayImage);
+                    // }
+                    // $('.photo-wrap').append(imageItem);
+                    // $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').addClass('hidden');
                 }
                 fr.readAsDataURL(item);
-            }else{
+
+            }
+            else{
                 alert('This is not an image');
             }
             //Array images
             console.log(ref.imageFileArray);
         });
+
     });
     this.element.parent().on('click', '.custom-file-preview-del', function (e) {
         e.preventDefault();
@@ -151,13 +162,19 @@ function CustomUpload(element) {
             return item.index == id;
         });
         ref.imageFileArray.splice(index, 1);
-        del.parent().remove();
+        // del.parent().remove();
+         del.parent().css('background-image', '');
+         del.addClass('hidden');
+         del.next().removeClass('hidden');
+         del.next().next().removeClass('hidden');
         //Array after deleted
+
         console.log(ref.imageFileArray);
-        $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').removeClass('hidden');
+
     });
 }
 const upload = new CustomUpload('#fileImage');
-$('.photo-item, .photo-main').on('click', function (e) {
+$('.photo-item .add-img, .photo-main').on('click', function (e) {
    $('.upload-mob').trigger('click');
 });
+
