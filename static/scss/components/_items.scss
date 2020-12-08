@@ -19,6 +19,9 @@
       background-size: contain;
     }
     .item-models__info {
+      li{
+        color: $danger;
+      }
       a{
         color: $danger;
       }
@@ -45,6 +48,10 @@
     li{
       position: relative;
       margin-right: 7px;
+      font-size: 16px;
+      line-height: 130%;
+      color: $default;
+      font-weight: 700;
       &:after{
         right: -2px;
         top: 0;

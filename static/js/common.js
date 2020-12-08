@@ -96,6 +96,16 @@ $('.popup-close, .popup-overlay').on('click', function (e) {
     $('body').removeClass('scroll');
     $('.popup-image__slider').slick("unslick");
 });
+$(document).mouseup(function (e){
+    var overlay = $('.popup .popup-centered');
+    if (!overlay.is(e.target)
+        && overlay.has(e.target).length === 0) {
+
+        $('.popup').removeClass('active');
+        $('body').removeClass('scroll');
+        $('.popup-image__slider').slick("unslick");
+    }
+});
 
 
 

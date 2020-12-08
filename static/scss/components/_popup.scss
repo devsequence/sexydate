@@ -5,21 +5,22 @@
   height: 100vh;
   z-index: 20;
   display: none;
+  overflow: auto;
+  background: rgba($black, .5);
   &.active{
     display: block;
   }
   &-centered{
     width: 100%;
     max-width: 548px;
-    overflow: auto;
-    background: $gray-300;
-    padding: 50px 20px;
+    background: $light-100;
+    padding: 20px;
     text-align: center;
+    position: relative;
     z-index: 2;
-    position: absolute;
     left: 0;
     right: 0;
-    margin: 0 auto;
+    margin: 50px auto;
     span{
       display: block;
       font-size: 13px;
@@ -114,6 +115,7 @@
 .popup-image__info{
   display: flex;
   margin-bottom: 25px;
+  width: calc(100% - 20px);
   ul{
     display: flex;
     flex-wrap: wrap;
@@ -121,6 +123,7 @@
   li{
     position: relative;
     margin-right: 7px;
+    font-size: 16px;
     &:after{
       right: -2px;
       top: 0;
@@ -139,7 +142,7 @@
     }
   }
   a{
-    font-size: 14px;
+    font-size: 16px;
     line-height: 130%;
     color: $default;
     font-weight: 700;
