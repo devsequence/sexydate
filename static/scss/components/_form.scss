@@ -75,10 +75,31 @@
   &:nth-child(2){
     background: $light-100;
     border-radius: 16px;
-    padding: 30px;
+    padding: 10px;
+    position: relative;
+    &:before{
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 70px;
+      height: calc(100% - 140px);
+      width: 4px;
+      background: $secondary-100;
+    }
+    &:after{
+      position: absolute;
+      content: '';
+      right: 0;
+      top: -30px;
+      background: url("../images/svg/ic-heart.svg") no-repeat;
+      width: 85px;
+      height: 80px;
+      background-size: contain;
+      transform: scale(-1, 1);
+    }
   }
   .step-btn{
-    margin: 0 0 0 auto;
+    margin: 0 auto;
     display: block;
   }
 }
@@ -98,6 +119,10 @@
   outline: none;
   margin-bottom: 8px;
   width: 100%;
+  &.error{
+    background-color: rgba($danger-100, .3);
+    border-color: $danger-100;
+  }
 }
 .select, .input{
   background: linear-gradient(0deg, rgba(242, 242, 242, 0.4), rgba(242, 242, 242, 0.4));
@@ -142,10 +167,9 @@
 .photo-wrap{
   display: flex;
   flex-wrap: wrap;
-  height: 320px;
   width: 100%;
   overflow: auto;
-  margin: 0 -20px;
+  margin: 0 auto;
 }
 
 .photo-container{
@@ -167,13 +191,29 @@
   }
 }
 .photo-container__item{
-  width: calc(50% - 35px);
+  width: 100%;
   margin: 0 35px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   .btn-green{
-    display: inline-block;
-    margin-right: 20px;
+    display: block;
+    width: 100%;
+    max-width: 180px;
+    text-align: center;
+    margin: 0 auto 50px;
+  }
+  .step-btn{
+    max-width: 250px;
+  }
+  .photo-main{
+    margin: 0 auto 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .photo-main-desktop{
+    display: none;
   }
 }
 .photo-item, .photo-upload{
@@ -245,6 +285,17 @@
   line-height: 16px;
   letter-spacing: 1px;
   color: $gray-100;
+  width: 100%;
+  margin-bottom: 30px;
+  .btn{
+    max-width: 300px;
+    padding: 10px 20px 9px 20px;
+    margin: 0 auto;
+    display: block;
+  }
+  &.desktop{
+    display: none;
+  }
   ul{
     display: block;
     margin-bottom: 29px;
@@ -364,4 +415,20 @@ input[data-state="invalid"] {
 /* Show green borders when valid */
 input[data-state="valid"] {
   border-color: hsl(120, 76%, 50%);
+}
+.form-success{
+  margin: 100px auto;
+  text-align: center;
+  .title-page{
+    font-family: $Manrope;
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $primary;
+    margin-bottom: 30px;
+  }
+  .btn-green{}
 }

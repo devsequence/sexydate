@@ -130,7 +130,7 @@
       opacity: 0;
       transition: all ease 150ms;
     }
-    &.active{
+    &.active, &:hover{
       &:before{
         opacity: 1;
       }

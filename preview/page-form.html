@@ -16,9 +16,10 @@
 <!-- build:css ../static/css/style.css -->
 <link rel="stylesheet" href="../static/css/grid.css">
 <link rel="stylesheet" href="../static/css/slick.css">
+<link rel="stylesheet" href="../static/css/style.css">
 <!-- endbuild -->
 
-<link rel="stylesheet" href="../static/css/style.css">
+
 
 <!--<link rel="shortcut icon" href="../static/images/favicon.png"/>-->
 
@@ -115,7 +116,7 @@
                 </ul>
             </div>
             <div class="header-btn">
-                <a href="#" class="btn btn-white">Lisa kuulutus</a>
+                <a href="page-form.html" class="btn btn-white">Lisa kuulutus</a>
             </div>
         </div>
     </div>
@@ -191,7 +192,7 @@
                 </ul>
             </div>
             <div class="mobile-btn">
-                <a href="#" class="btn btn-red">Lisa kuulutus</a>
+                <a href="page-form.html" class="btn btn-red">Lisa kuulutus</a>
             </div>
         </div>
     </div>
@@ -229,7 +230,7 @@
                         </div>
                     </div>
                 </div>
-                <form id="">
+                <form>
                     <div class="step-item active" data-step="step-1">
                         <div class="step-item__info">
                             <div class="form-item">
@@ -289,20 +290,30 @@
                                     Kuulutuse tekst *
                                 </label>
                                 <textarea class="textarea required" name="message" id="message"></textarea>
-                                <span class="input-info">(max 1000 tähemärki, veel saab kirjutada 1000 tähemärki)</span>
                                 <span class="input-error">Antud väli on kohustuslik!</span>
+                                <span class="input-info">(max 1000 tähemärki, veel saab kirjutada 1000 tähemärki)</span>
+
                             </div>
                             <button class="btn btn-green step-btn" type="button" data-step="step-2">
                                 Salvesta ja lisa foto
                             </button>
                         </div>
                     </div>
-                    <div class="step-item photo-container" data-step="step-2">
+                    <div class="step-item photo-container " data-step="step-2">
                         <div class="photo-container__item">
                             <input type="file" id="fileImage" name="fileImage"
                                    class="custom-file-image-input hidden"
                                    accept="image/*"
+                                   data-max-file-size="1MB"
                                    multiple="multiple">
+                            <label for="fileImage" class="btn btn-green upload-photo upload-mob">
+                                Lisa foto
+                            </label>
+                            <div class="photo-main">
+                                <svg class="icon">
+                                    <use xlink:href="#ic-photo"></use>
+                                </svg>
+                            </div>
                             <div class="photo-wrap">
                                 <div class="photo-item">
                                     <svg class="icon">
@@ -354,7 +365,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="photo-container__info">
+                            <div class="photo-container__info desktop">
                                 <ul>
                                     <li>
                                         - foto peab olema <b> JPG,</b>  <b>GIF</b> või <b>PNG</b> formaadis
@@ -377,10 +388,28 @@
                             </div>
                         </div>
                         <div class="photo-container__item">
-                            <div class="photo-main">
+                            <div class="photo-main photo-main-desktop">
                                 <svg class="icon">
                                     <use xlink:href="#ic-photo"></use>
                                 </svg>
+                            </div>
+                            <div class="photo-container__info">
+                                <ul>
+                                    <li>
+                                        - foto peab olema <b> JPG,</b>  <b>GIF</b> või <b>PNG</b> formaadis
+                                    </li>
+                                    <li>
+                                        - maksimaalne lubatud faili suurus on 1 megabait
+                                    </li>
+                                    <li>
+                                        - fotot näidatakse siin vähendatud kujul
+                                    </li>
+                                </ul>
+                                <div class="photo-container__nav">
+                                    <button type="button" class="btn btn-red step-btn"  data-step="step-1">
+                                        tagasi kuulutuse teksti muutma
+                                    </button>
+                                </div>
                             </div>
                             <button class="btn btn-green step-btn" type="button" data-step="step-3">
                                 Saada kuulutus ära
@@ -462,10 +491,56 @@
                         </div>
                     </div>
                 </form>
-                <div class="form-success payment-item-special">
-                    <div class="title">
+                <div class="form-success hidden">
+                    <div class="title-page">
                         Täname, kuulutus on lisatud!
                     </div>
+                    <div class="item-models item-special">
+                        <div class="item-models__media">
+                            <a href="#" class="btn-popup-info" data-popup="image-special">
+                                <img src="../static/images/general/model-1.jpg" alt="model-1">
+                            </a>
+                        </div>
+                        <div class="item-models__description">
+                            <div class="item-models__info">
+                                <ul>
+                                    <li>
+                                        <a href="page-model.html" class="info-name">Diana</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="info-location">Tallinn</a>
+                                    </li>
+                                    <li>
+                                        <a href="tel:53456987" class="info-phone">53 456 987</a>
+                                    </li>
+                                    <li>
+                                        <a href="mailto:diana.tallinn@gmail.com" class="info-email">diana.tallinn@gmail.com</a>
+                                    </li>
+                                </ul>
+                                <span class="item-models__date">
+                                01. dec. 23:17
+                            </span>
+                            </div>
+                            <div class="item-models__media">
+                                <a href="#" class="btn-popup-info" data-popup="image-special">
+                                    <img src="../static/images/general/model-1.jpg" alt="model-1">
+                                </a>
+                            </div>
+                            <div class="item-models__text">
+                                <a href="page-model.html">
+                                    Otsin oma kõrvale meest, kellega vahel aega viita. Sina peaksid olema materiaalselt kindlustatud ja korralike elukommetega!
+                                </a>
+                            </div>
+                            <div class="item-models__link">
+                                <a href="#" class="btn-popup" data-popup="payment-popup">
+                                    tõsta kuulutus esimeseks
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html" class="btn btn-green">
+                        Tagasi kuulutuste lehele
+                    </a>
                 </div>
             </div>
         </div>
@@ -481,7 +556,7 @@
             </a>
         </div>
         <div class="footer-btn">
-            <a href="#" class="btn btn-red">Lisa kuulutus</a>
+            <a href="page-form.html" class="btn btn-red">Lisa kuulutus</a>
         </div>
         <div class="footer-info">
             <div class="info-text">

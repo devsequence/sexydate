@@ -7,10 +7,14 @@ $('.nav-btn').on('click', function (e) {
 $('.step-btn').on('click', function (e) {
     var $this = $(this);
     var $thisData = $this.data('step');
-
-    // $('.form-step__item').removeClass('active');
-    // $('.step-item').removeClass('active');
-    // $('div[data-step = '+$thisData+']').addClass('active');
+    if($('input, textarea').hasClass('required')){
+        $('.required').addClass('error').next().show();
+    }else{
+        $('.input').next().hide();
+        $('.form-step__item').removeClass('active');
+        $('.step-item').removeClass('active');
+        $('div[data-step = '+$thisData+']').addClass('active');
+    }
 });
 
 $('.btn-popup').on('click', function (e) {
@@ -20,8 +24,19 @@ $('.btn-popup').on('click', function (e) {
     $('.popup').removeClass('active');
     $('div[data-popup = '+$thisData+']').addClass('active');
     $('body').addClass('scroll');
-
 });
+
+$('.input, .textarea').on('change', function (e) {
+    var $this = $(this);
+    if($this.val().length !== 0){
+        $this.removeClass('required error');
+        $this.next().hide();
+    }else {
+        $this.addClass('required error');
+        $this.next().show();
+    }
+});
+
 $('.btn-popup-info').on('click', function (e) {
     e.preventDefault();
     var $this = $(this);
@@ -101,16 +116,16 @@ function CustomUpload(element) {
                 fr.onload = function (event) {
                     imageItem += `
                     <div class="photo-upload"
-                    style="background: url('${event.target.result}')">
+                    style="background-image: url('${event.target.result}')">
                     <span data-key="${item.index}" class="custom-file-preview-del">
                     <svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
                     </div>
                     `;
                     $('.photo-wrap .photo-item').remove();
                     $('.photo-wrap').append(imageItem);
+                    $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').addClass('hidden');
                 }
                 fr.readAsDataURL(item);
-
             }else{
                 alert('This is not an image');
             }
@@ -129,9 +144,10 @@ function CustomUpload(element) {
         del.parent().remove();
         //Array after deleted
         console.log(ref.imageFileArray);
+        $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').removeClass('hidden');
     });
 }
 const upload = new CustomUpload('#fileImage');
-$('.photo-item').on('click', function (e) {
-   $('.upload-photo').trigger('click');
+$('.photo-item, .photo-main').on('click', function (e) {
+   $('.upload-mob').trigger('click');
 });
