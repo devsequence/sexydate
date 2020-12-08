@@ -874,6 +874,16 @@ button {
     height: calc(100% - 120px);
     width: 4px;
     background: #AB7AE4; }
+  .photo-container:after {
+    position: absolute;
+    content: '';
+    right: -20px;
+    top: -30px;
+    background: url("../images/svg/ic-heart.svg") no-repeat;
+    width: 85px;
+    height: 80px;
+    background-size: contain;
+    transform: scale(-1, 1); }
 
 .photo-container__item {
   width: 100%;

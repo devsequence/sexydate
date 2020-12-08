@@ -56,6 +56,7 @@
     flex-wrap: wrap;
     .photo-container{
       display: flex;
+
     }
   }
   .label{
@@ -187,6 +188,18 @@
     height: calc(100% - 120px);
     width: 4px;
     background: $secondary-100;
+
+  }
+  &:after{
+    position: absolute;
+    content: '';
+    right: -20px;
+    top: -30px;
+    background: url("../images/svg/ic-heart.svg") no-repeat;
+    width: 85px;
+    height: 80px;
+    background-size: contain;
+    transform: scale(-1 , 1);
   }
 }
 .photo-container__item{
