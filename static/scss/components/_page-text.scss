@@ -19,15 +19,15 @@
   position: relative;
   font-family: $Manrope;
   color: $default-100;
+  letter-spacing: 1px;
   font-size: 14px;
   line-height: 16px;
-  letter-spacing: 1px;
   &:before{
     position: absolute;
     content: '';
     left: 0;
-    top: 70px;
-    height: calc(100% - 140px);
+    top: 60px;
+    height: calc(100% - 100px);
     width: 4px;
     background: $secondary-100;
   }

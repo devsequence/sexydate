@@ -73,6 +73,7 @@
   }
   hr{
     margin: 50px 0 10px;
+    border-bottom:  1px solid  #E5E5E5;
   }
   .slide{
     outline: none;
@@ -111,7 +112,11 @@
   .slick-next{
     right: 0;
   }
+  .popup-payment__text{
+    color: $gray-100;
+  }
 }
+
 .popup-image__info{
   display: flex;
   margin-bottom: 25px;

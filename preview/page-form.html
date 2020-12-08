@@ -231,7 +231,7 @@
                     </div>
                 </div>
                 <form>
-                    <div class="step-item " data-step="step-1">
+                    <div class="step-item active" data-step="step-1">
                         <div class="step-item__info">
                             <div class="form-item">
                                 <label class="label" for="category">
@@ -299,24 +299,27 @@
                             </button>
                         </div>
                     </div>
-                    <div class="step-item photo-container active" data-step="step-2">
+                    <div class="step-item photo-container " data-step="step-2">
                         <div class="photo-container__item">
                             <input type="file" id="fileImage" name="fileImage"
                                    class="custom-file-image-input hidden"
                                    accept="image/*"
-                                   data-max-file-size="1MB"
                                    multiple="multiple">
-                            <label for="fileImage" class="btn btn-green upload-photo upload-mob">
+                            <button type="button" class="btn btn-green upload-photo upload-mob">
                                 Lisa foto
-                            </label>
+                            </button>
                             <div class="photo-main">
                                 <svg class="icon">
                                     <use xlink:href="#ic-photo"></use>
                                 </svg>
                             </div>
                             <div class="photo-wrap">
-                                <div class="photo-item" data-image="0">
-                                    <span data-key="0" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -324,8 +327,12 @@
                                         <use xlink:href="#ic-plus"></use>
                                     </svg>
                                 </div>
-                                <div class="photo-item" data-image="1">
-                                    <span data-key="1" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -333,8 +340,12 @@
                                         <use xlink:href="#ic-plus"></use>
                                     </svg>
                                 </div>
-                                <div class="photo-item" data-image="2">
-                                    <span data-key="2" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -343,8 +354,13 @@
                                     </svg>
                                 </div>
 
-                                <div class="photo-item" data-image="3">
-                                    <span data-key="3" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -352,8 +368,12 @@
                                         <use xlink:href="#ic-plus"></use>
                                     </svg>
                                 </div>
-                                <div class="photo-item" data-image="4">
-                                    <span data-key="4" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -361,8 +381,12 @@
                                         <use xlink:href="#ic-plus"></use>
                                     </svg>
                                 </div>
-                                <div class="photo-item" data-image="5">
-                                    <span data-key="5" class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                <div class="photo-item">
+                                    <span class="custom-file-preview-del hidden"><svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+                                    <img class="image hidden" src="" alt="">
+                                    <button class="file-upload">
+                                        <input type="file" class="file-input">
+                                    </button>
                                     <svg class="icon add-img">
                                         <use xlink:href="#ic-photo"></use>
                                     </svg>
@@ -384,9 +408,9 @@
                                     </li>
                                 </ul>
                                 <div class="photo-container__nav">
-                                    <label for="fileImage" class="btn btn-green upload-photo">
+                                    <button class="btn btn-green upload-photo" type="button">
                                         Lisa foto
-                                    </label>
+                                    </button>
                                     <button type="button" class="btn btn-red step-btn"  data-step="step-1">
                                         tagasi kuulutuse teksti muutma
                                     </button>
@@ -394,7 +418,7 @@
                             </div>
                         </div>
                         <div class="photo-container__item">
-                            <div class="photo-main photo-main-desktop">
+                            <div class="photo-main photo-main-desktop" data-image="0">
                                 <svg class="icon">
                                     <use xlink:href="#ic-photo"></use>
                                 </svg>
@@ -596,7 +620,7 @@
         </div>
     </div>
 </footer>
-<div class="popup" data-popup="payment-popup">
+<div class="popup payment-popup" data-popup="payment-popup">
     <div class="popup-centered">
         <button class="popup-close">
             <svg class="icon">
@@ -638,10 +662,12 @@
                 <strong>0,8 eurot</strong>
             </span>
             <hr>
-            SMS-i sisus on kasutusel AINULT
-            ladina tähestiku tähed A kuni Z, 0-9.
-            SMS-i sisus ei ole suurtel ja väikestel tähtedel vahet.
-            Teenus töötab ainult Eesti GSM-operaatoritega.
+            <span class="popup-payment__text">
+                SMS-i sisus on kasutusel AINULT
+                ladina tähestiku tähed A kuni Z, 0-9.
+                SMS-i sisus ei ole suurtel ja väikestel tähtedel vahet.
+                Teenus töötab ainult Eesti GSM-operaatoritega.
+            </span>
         </div>
     </div>
     <div class="popup-overlay"></div>

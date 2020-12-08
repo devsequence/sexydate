@@ -48,19 +48,20 @@
     li{
       position: relative;
       margin-right: 7px;
+      font-family: $Manrope;
       font-size: 16px;
-      line-height: 130%;
-      color: $default;
-      font-weight: 700;
+      line-height: 200%;
+      color: $default-100;
+      font-weight: 500;
       &:after{
         right: -2px;
         top: 0;
         position: relative;
         content: '-';
-        font-size: 14px;
+        font-size: 16px;
         line-height: 130%;
-        color: $default;
-        font-weight: 700;
+        color: $default-100;
+        font-weight: 500;
       }
       &:last-of-type{
         margin-right: 0;
@@ -72,7 +73,7 @@
     a{
       font-size: 16px;
       line-height: 130%;
-      color: $default;
+      color: $default-100;
       font-weight: 700;
     }
   }
@@ -87,7 +88,7 @@
     line-height: 18px;
     letter-spacing: 1px;
     font-weight: 500;
-    color: $default;
+    color: $default-100;
     font-family: $Manrope;
   }
   &__media{

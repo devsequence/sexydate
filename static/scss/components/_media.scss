@@ -224,7 +224,7 @@
     }
   }
   .photo-container__item {
-    margin: 0;
+    margin: 0 30px;
     .upload-mob{
       display: none;
     }
@@ -260,6 +260,14 @@
       margin-bottom: 18px;
     }
   }
+  .payment-popup{
+    .popup-centered{
+      padding: 70px 20px;
+    }
+  }
+  .block-text{
+    padding: 45px;
+  }
 }
 @media screen and ( min-width: 1200px ){
   .photo-container__item{
@@ -274,7 +282,7 @@
       .photo-container__nav{
         display: flex;
         justify-content: space-between;
-        width: 80%;
+        width: 100%;
       }
     }
   }

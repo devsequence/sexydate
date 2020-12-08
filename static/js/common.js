@@ -106,75 +106,103 @@ $(document).mouseup(function (e){
     }
 });
 
-
-
-function CustomUpload(element) {
-    let ref = this;
-    this.imageFileArray = [];
-    this.element = $(element);
-    this.element.on('change', async function (e) {
-        let arrayImage = e.target.files;
-        let start = ref.imageFileArray.length;
-        let validExt = ['image/jpg', 'image/jpeg', 'image/png'];
-        $.each(arrayImage, (index, item) => {
-
-            if ($.inArray(item.type,validExt) != -1) {
-                item.index = start + index;
-                ref.imageFileArray.push(item);
-                let fr = new FileReader();
-                let imageItem = '';
-                fr.onload = function (event) {
-                    imageItem += `
-                    <div class="photo-upload"
-                    style="background-image: url('${event.target.result}')">
-                    <span data-key="${item.index}" class="custom-file-preview-del">
-                    <svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
-                    </div>
-                    `;
-                    $('div [data-image = '+ item.index +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
-                    $('div [data-image = '+ item.index +']').find('.add-img').addClass('hidden');
-                    // $('.photo-wrap .photo-item').remove();
-
-                    // for (let i = 0; i < arrayImage.length; i++) {
-                    //     $('div [data-image = '+ i +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
-                    //     // console.log('item'+ i , event.target.result);
-                    //     console.log(arrayImage);
-                    // }
-                    // $('.photo-wrap').append(imageItem);
-                    // $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').addClass('hidden');
-                }
-                fr.readAsDataURL(item);
-
-            }
-            else{
-                alert('This is not an image');
-            }
-            //Array images
-            console.log(ref.imageFileArray);
-        });
-
-    });
-    this.element.parent().on('click', '.custom-file-preview-del', function (e) {
-        e.preventDefault();
-        let del = $(this);
-        let id = del.data('key');
-        let index = ref.imageFileArray.findIndex(item => {
-            return item.index == id;
-        });
-        ref.imageFileArray.splice(index, 1);
-        // del.parent().remove();
-         del.parent().css('background-image', '');
-         del.addClass('hidden');
-         del.next().removeClass('hidden');
-         del.next().next().removeClass('hidden');
-        //Array after deleted
-
-        console.log(ref.imageFileArray);
-
-    });
-}
-const upload = new CustomUpload('#fileImage');
-$('.photo-item .add-img, .photo-main').on('click', function (e) {
-   $('.upload-mob').trigger('click');
+$('.file-input').change(function(){
+    var curElement = $(this).parent().parent().find('.image');
+    var curDel = $(this).parent().parent().find('.custom-file-preview-del');
+    console.log(curElement);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        curElement.attr('src', e.target.result).removeClass('hidden');
+        curDel.removeClass('hidden');
+        $('.photo-main').css('background-image', 'url('+ e.target.result +')').find('.icon').addClass('hidden');
+    };
+    reader.readAsDataURL(this.files[0]);
 });
+$('.custom-file-preview-del').on('click', function (e) {
+    var $thisImage = $(this).next();
+    var $thisParent = $(this).parent().prev().find('img').attr('src');
+    $(this).addClass('hidden');
+    $thisImage.attr('src', '').addClass('hidden');
+    $('.photo-main').css('background-image', 'url('+ $thisParent +')').find('.icon').addClass('hidden');
+});
+$('.upload-photo, .photo-main').on('click', function (e) {
+    $('.photo-wrap .photo-item:first-child .file-input').trigger('click');
+});
+
+
+// function CustomUpload(element) {
+//     let ref = this;
+//     this.imageFileArray = [];
+//     this.element = $(element);
+//
+//     this.element.on('change', async function (e) {
+//         let arrayImage = e.target.files;
+//         let start = ref.imageFileArray.length;
+//         let validExt = ['image/jpg', 'image/jpeg', 'image/png'];
+//
+//         $.each(arrayImage, (index, item) => {
+//             if ($.inArray(item.type,validExt) != -1) {
+//                 item.index = start + index;
+//                 ref.imageFileArray.push(item);
+//                 let fr = new FileReader();
+//                 let imageItem = '';
+//                 fr.onload = function (event) {
+//                     imageItem += `
+//                     <div class="photo-upload"
+//                     style="background-image: url('${event.target.result}')">
+//                     <span data-key="${item.index}" class="custom-file-preview-del">
+//                     <svg class="icon"><use xlink:href="#ic-close"></use></svg></span>
+//                     </div>
+//                     `;
+//                     $('div [data-image = '+ item.index +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
+//                     $('div [data-image = '+ item.index +']').find('.add-img').addClass('hidden');
+//                     $('.photo-main .icon').addClass('hidden');
+//
+//                     // $('.photo-wrap .photo-item').remove();
+//
+//                     // for (let i = 0; i < arrayImage.length; i++) {
+//                     //     $('div [data-image = '+ i +']').css('background-image', 'url('+ event.target.result +')').find('.custom-file-preview-del').removeClass('hidden');
+//                     //     // console.log('item'+ i , event.target.result);
+//                     //     console.log(arrayImage);
+//                     // }
+//                     // $('.photo-wrap').append(imageItem);
+//                     // $('.photo-main').css('background-image', 'url('+ event.target.result +')').find('.icon').addClass('hidden');
+//                 }
+//                 fr.readAsDataURL(item);
+//
+//             }
+//             else{
+//                 alert('This is not an image');
+//             }
+//             //Array images
+//             console.log(ref.imageFileArray);
+//         });
+//
+//     });
+//     this.element.parent().on('click', '.custom-file-preview-del', function (e) {
+//         e.preventDefault();
+//         let del = $(this);
+//         let id = del.data('key');
+//         let index = ref.imageFileArray.findIndex(item => {
+//             return item.index == id;
+//         });
+//         ref.imageFileArray.splice(index, 1);
+//          //del.parent().remove();
+//          del.parent().css('background-image', '');
+//          del.addClass('hidden');
+//          del.next().removeClass('hidden');
+//          del.next().next().removeClass('hidden');
+//         //Array after deleted
+//
+//         console.log(ref.imageFileArray);
+//         if($(ref.imageFileArray).length <= 0){
+//             $('.photo-main').css('background-image', '').find('.icon').removeClass('hidden');
+//         }
+//     });
+// }
+// const upload = new CustomUpload('#fileImage');
+// $('.photo-item .add-img, .photo-main').on('click', function (e) {
+//    $('.upload-mob').trigger('click');
+// });
+
 
